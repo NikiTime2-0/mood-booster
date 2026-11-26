@@ -19,11 +19,11 @@ window.mood = {
   banner: [
     { ab: 0, icon: "☾", text: "Du solltest schlafen, Laura. Morgen ist auch noch ein Tag." },
     { ab: 6, icon: "☀", text: "Guten Morgen, Laura! Mach’s dir heute schön." },
-    { ab: 11, icon: "♡", text: "Hallo, Laura! Hast du schon eine kleine Pause gemacht?" },
+    { ab: 11, icon: "✦", text: "Hallo, Laura! Hast du schon eine kleine Pause gemacht?" },
     { ab: 14, icon: "✦", text: "Wie läuft die Schicht? Ich drück dir die Daumen." },
-    { ab: 14, icon: "♡", text: "Hallo, Laura! Kleiner Zwischenstopp zum Durchatmen." },
+    { ab: 14, icon: "✦", text: "Hallo, Laura! Kleiner Zwischenstopp zum Durchatmen." },
     { ab: 19, icon: "☾", text: "Guten Abend, Laura. Zeit für etwas Schönes." },
-    { ab: 23, icon: "☾", text: "Du solltest schlafen. Gute Nacht, Laura ♡" }
+    { ab: 23, icon: "☾", text: "Du solltest schlafen. Gute Nacht, Laura." }
   ],
   umamiWebsiteId: ""
 };

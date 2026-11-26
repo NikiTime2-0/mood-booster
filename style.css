@@ -21,7 +21,7 @@ main {
   padding: max(2.6rem, env(safe-area-inset-top)) 1.25rem max(4.75rem, env(safe-area-inset-bottom));
 }
 header { text-align: center; margin-bottom: 2rem; }
-.heart {
+.brand-star {
   display: inline-grid;
   place-items: center;
   width: 2.7rem;
