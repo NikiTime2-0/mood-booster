@@ -1,6 +1,6 @@
 "use strict";
 
-const { zitate, banner, umamiWebsiteId } = window.mood;
+const { zitate, banner } = window.mood;
 const hourMs = 3_600_000;
 const hourFormat = new Intl.DateTimeFormat("de", { hour: "2-digit", minute: "2-digit" });
 const quote = document.querySelector("#quote");
@@ -34,32 +34,3 @@ document.addEventListener("visibilitychange", () => {
   if (!document.hidden) updatePage();
 });
 window.addEventListener("pageshow", updatePage);
-
-if (umamiWebsiteId) {
-  const stats = document.querySelector("#stats");
-  const choice = document.querySelector("#stats-choice");
-  const status = document.querySelector("#stats-status");
-  const preferenceKey = "mood-booster-stats";
-
-  function enableStats() {
-    const script = document.createElement("script");
-    script.src = "https://cloud.umami.is/script.js";
-    script.dataset.websiteId = umamiWebsiteId;
-    script.defer = true;
-    document.head.append(script);
-    choice.textContent = "Zustimmung widerrufen";
-  }
-
-  stats.hidden = false;
-  if (localStorage.getItem(preferenceKey) === "yes") enableStats();
-  choice.addEventListener("click", () => {
-    if (localStorage.getItem(preferenceKey) === "yes") {
-      localStorage.removeItem(preferenceKey);
-      window.location.reload();
-      return;
-    }
-    localStorage.setItem(preferenceKey, "yes");
-    enableStats();
-    status.textContent = "Deine Zustimmung wurde gespeichert.";
-  });
-}

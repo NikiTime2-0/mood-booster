@@ -97,7 +97,4 @@ figcaption { color: var(--muted); font-size: .88rem; }
 .mascot span:last-child { transform: translateY(.25rem); }
 @keyframes sway { 0%, 100% { transform: rotate(-4deg); } 50% { transform: translateY(-4px) rotate(4deg); } }
 @media (prefers-reduced-motion: reduce) { .mascot img { animation: none; } }
-#stats { margin: 1rem 0; line-height: 1.5; color: var(--muted); }
-#stats summary { cursor: pointer; }
-#stats button { font: inherit; border: 1px solid #bd9ace; border-radius: .6rem; background: #f0e5fa; color: var(--ink); min-height: 44px; padding: .4rem .75rem; }
 :focus-visible { outline: 2px solid #814891; outline-offset: 3px; }
