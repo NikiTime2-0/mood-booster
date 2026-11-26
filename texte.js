@@ -25,5 +25,5 @@ window.mood = {
     { ab: 19, icon: "☾", text: "Guten Abend, Laura. Zeit für etwas Schönes." },
     { ab: 23, icon: "☾", text: "Du solltest schlafen. Gute Nacht, Laura." }
   ],
-  umamiWebsiteId: ""
+  umamiWebsiteId: "f783c1e7-1a01-4a90-9802-c80f0511f111"
 };
