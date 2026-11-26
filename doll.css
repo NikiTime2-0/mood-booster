@@ -1,0 +1,260 @@
+.doll-launcher, .doll-close, .doll-reset, .doll-toy {
+  font: inherit;
+  cursor: pointer;
+  touch-action: manipulation;
+}
+
+.doll-launcher {
+  position: fixed;
+  z-index: 5;
+  right: max(1rem, env(safe-area-inset-right));
+  bottom: max(1rem, env(safe-area-inset-bottom));
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  padding: 0;
+  border: 1px solid #eddade;
+  border-radius: 50%;
+  background: #fffbf8;
+  color: #794768;
+  box-shadow: 0 4px 18px #55274120;
+}
+
+.doll-icon {
+  position: relative;
+  width: 12px;
+  height: 14px;
+  margin-top: 7px;
+  border-radius: 4px 4px 3px 3px;
+  background: currentColor;
+}
+
+.doll-icon::before {
+  position: absolute;
+  content: "";
+  width: 8px;
+  height: 8px;
+  top: -9px;
+  left: 2px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.doll-icon::after {
+  position: absolute;
+  content: "";
+  width: 20px;
+  height: 4px;
+  top: 2px;
+  left: -4px;
+  border-radius: 4px;
+  background: currentColor;
+}
+
+.doll-dialog {
+  position: fixed;
+  box-sizing: border-box;
+  width: min(23rem, calc(100% - 2rem));
+  max-height: calc(100% - 2rem);
+  max-height: calc(100dvh - 2rem);
+  padding: 2.6rem 1rem 1.2rem;
+  overflow: auto;
+  border: 1px solid #eddbdf;
+  border-radius: 26px;
+  background: #fffbf7;
+  color: #3e2940;
+  text-align: center;
+  box-shadow: 0 22px 70px #3d21384d;
+}
+
+.doll-dialog::backdrop {
+  background: #36253a77;
+}
+
+.doll-close {
+  position: absolute;
+  top: .35rem;
+  right: .45rem;
+  width: 44px;
+  height: 44px;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: inherit;
+  font-size: 1.65rem;
+  line-height: 1;
+}
+
+.doll-dialog h2 {
+  margin: 0;
+  font-size: 1.55rem;
+  line-height: 1.15;
+}
+
+.doll-dialog p {
+  margin: .5rem 0 .75rem;
+}
+
+.doll-toy {
+  display: block;
+  position: relative;
+  isolation: isolate;
+  width: min(12rem, 100%);
+  height: 14rem;
+  margin: 0 auto .45rem;
+  padding: 0;
+  border: 0;
+  border-radius: 1.25rem;
+  background: radial-gradient(ellipse at center, #f7e3e8 0, #f7e3e800 72%);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.doll-toy:active {
+  transform: scale(.98);
+}
+
+.doll-part {
+  position: absolute;
+  overflow: hidden;
+  border: 1px solid #66485b77;
+  background-image: repeating-linear-gradient(45deg, #fff3 0 1px, transparent 1px 3px);
+  box-shadow: inset -4px -4px 9px #4523392b;
+}
+
+.doll-head {
+  width: 37%;
+  height: 32%;
+  left: 31.5%;
+  top: 6%;
+  border-radius: 46% 46% 43% 43%;
+  background-color: #ddae96;
+}
+
+.doll-hair {
+  position: absolute;
+  width: 90%;
+  height: 32%;
+  left: -3%;
+  top: -7%;
+  transform: rotate(-9deg);
+  border-radius: 50% 28% 55% 12%;
+  background: #69505d;
+}
+
+.doll-eyes {
+  position: absolute;
+  width: 5px;
+  height: 7px;
+  top: 45%;
+  left: 29%;
+  border-radius: 50%;
+  background: #574455;
+  box-shadow: 22px 0 #574455;
+}
+
+.doll-mouth {
+  position: absolute;
+  width: 15px;
+  height: 6px;
+  top: 67%;
+  left: calc(50% - 7px);
+  border-bottom: 2px dashed #744e58;
+  border-radius: 50%;
+}
+
+.doll-body {
+  width: 41%;
+  height: 36%;
+  left: 29.5%;
+  top: 35%;
+  border-radius: 24% 24% 19% 19%;
+  background-color: #a8ab89;
+}
+
+.doll-body::before {
+  position: absolute;
+  content: "";
+  width: 24%;
+  height: 21%;
+  top: 31%;
+  right: 16%;
+  border: 1px dashed #616649;
+  border-radius: 0 0 25% 25%;
+}
+
+.doll-arm {
+  width: 17%;
+  height: 33%;
+  top: 36%;
+  border-radius: 35%;
+  background-color: #a8ab89;
+  background-image: repeating-linear-gradient(45deg, #fff3 0 1px, transparent 1px 3px),
+    linear-gradient(to bottom, transparent 0 73%, #ddae96 73% 100%);
+}
+
+.doll-arm-left { left: 17%; transform: rotate(29deg); }
+.doll-arm-right { right: 17%; transform: rotate(-29deg); }
+
+.doll-leg {
+  width: 18%;
+  height: 27%;
+  top: 65%;
+  border-radius: 30% 30% 35% 35%;
+  background-color: #8e7892;
+}
+
+.doll-leg-left { left: 31%; transform: rotate(7deg); }
+.doll-leg-right { right: 31%; transform: rotate(-7deg); }
+
+.doll-mark {
+  position: absolute;
+  transform: translate(-50%, -50%) rotate(-23deg);
+  pointer-events: none;
+  animation: doll-mark-in .18s ease-out;
+}
+
+.doll-bruise {
+  width: 22px;
+  height: 15px;
+  border-radius: 47% 57% 39% 63%;
+  background: radial-gradient(ellipse, #6658a0c9, #8f7abda3 62%, transparent 74%);
+}
+
+.doll-tear {
+  width: 27px;
+  height: 7px;
+  border-radius: 45%;
+  background: repeating-linear-gradient(105deg, transparent 0 5px, #dfc6b9 5px 6px), #5c495c;
+}
+
+@keyframes doll-mark-in {
+  from { opacity: 0; }
+}
+
+.doll-actions { min-height: 44px; }
+
+.doll-reset {
+  box-sizing: border-box;
+  min-height: 44px;
+  padding: .4rem 1rem;
+  border: 1px solid #ead0d7;
+  border-radius: 999px;
+  background: #f8e9ed;
+  color: #593c55;
+}
+
+.doll-reset[hidden] { display: none; }
+
+.doll-status {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .doll-mark { animation: none; }
+  .doll-toy:active { transform: none; }
+}
