@@ -1,4 +1,4 @@
-.doll-launcher, .doll-close, .doll-reset, .doll-toy {
+.doll-launcher, .doll-close, .doll-toy {
   font: inherit;
   cursor: pointer;
   touch-action: manipulation;
@@ -133,13 +133,14 @@
 
 .doll-hair {
   position: absolute;
-  width: 90%;
-  height: 32%;
-  left: -3%;
-  top: -7%;
-  transform: rotate(-9deg);
-  border-radius: 50% 28% 55% 12%;
-  background: #69505d;
+  width: 101%;
+  height: 45%;
+  left: -4%;
+  top: -9%;
+  border-radius: 60% 40% 28% 22%;
+  transform: rotate(8deg);
+  background: repeating-linear-gradient(115deg, #58434f 0 3px, #6a5260 3px 4px);
+  clip-path: polygon(0 0, 100% 0, 100% 89%, 80% 60%, 67% 95%, 52% 72%, 36% 100%, 31% 75%, 0 91%);
 }
 
 .doll-eyes {
@@ -231,20 +232,6 @@
 @keyframes doll-mark-in {
   from { opacity: 0; }
 }
-
-.doll-actions { min-height: 44px; }
-
-.doll-reset {
-  box-sizing: border-box;
-  min-height: 44px;
-  padding: .4rem 1rem;
-  border: 1px solid #ead0d7;
-  border-radius: 999px;
-  background: #f8e9ed;
-  color: #593c55;
-}
-
-.doll-reset[hidden] { display: none; }
 
 .doll-status {
   position: absolute;

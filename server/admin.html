@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="de">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mood Booster Admin</title>
+<link rel="stylesheet" href="/style.css">
+<script defer src="/texte.js"></script>
+<script defer src="/admin.js?v=geraet-kennzeichnen"></script>
+<style>
+  .back-link { display: inline-flex; align-items: center; min-height: 44px; color: var(--ink); }
+  fieldset { margin: 1rem 0; border: 1px solid #d5c5dd; border-radius: 1rem; }
+  .row { display: flex; gap: .35rem; margin: .55rem 0; flex-wrap: wrap; }
+  input, button { border: 1px solid #bc9bc9; border-radius: .45rem; padding: .55rem; min-height: 44px; font: inherit; }
+  input[type=text] { flex: 1 1 12rem; min-width: 0; }
+  input[type=number] { width: 5rem; }
+  button { background: #f0e5fa; color: inherit; }
+  output { display: block; margin: .65rem 0; }
+</style>
+<main>
+  <a class="back-link" href="/">Zurück zu Mood Booster</a>
+  <h1>Mood Booster</h1>
+  <section>
+    <h2>Letzte Seitenaufrufe</h2>
+    <p id="visit-status">Wird geladen …</p>
+    <ol id="visits"></ol>
+    <form id="named-device-form">
+      <label for="named-device-label">Dieses Gerät kennzeichnen</label>
+      <div class="row">
+        <input id="named-device-label" type="text" maxlength="40" placeholder="Mein iPhone" required>
+        <button type="submit">Gerätename speichern</button>
+      </div>
+      <output id="named-device-status" aria-live="polite"></output>
+    </form>
+  </section>
+  <section>
+    <h2>Beliebte Zitate</h2>
+    <p id="favorites-status">Wird geladen …</p>
+    <ol id="favorite-quotes"></ol>
+  </section>
+  <section>
+    <h2>Abstimmung zur Stoffpuppe</h2>
+    <p id="doll-poll-stats">Wird geladen …</p>
+  </section>
+  <section>
+    <h2>Namensvorschläge für die Katze</h2>
+    <p id="cat-names-status">Wird geladen …</p>
+    <ul id="cat-names"></ul>
+  </section>
+  <section>
+    <h2>Leckerli-Regale</h2>
+    <p id="shelf-admin-status">Wird geladen …</p>
+    <button id="shelf-refill" type="button" disabled>Leere Regale auffüllen</button>
+    <output id="shelf-admin-message" aria-live="polite"></output>
+  </section>
+  <form id="editor" hidden>
+    <fieldset>
+      <legend>Zitate</legend>
+      <div id="quotes"></div>
+      <button id="add-quote" type="button">Zitat hinzufügen</button>
+    </fieldset>
+    <fieldset>
+      <legend>Banner</legend>
+      <p>Die Uhrzeit gibt an, ab wann der Text angezeigt wird.</p>
+      <div id="banners"></div>
+      <button id="add-banner" type="button">Banner hinzufügen</button>
+      <h2>Banner-Vorschau</h2>
+      <label>Uhrzeit heute <input id="preview-time" type="time"></label>
+      <output id="banner-preview" class="greeting" aria-live="polite"></output>
+    </fieldset>
+    <button type="submit">Veröffentlichen</button>
+    <button id="undo-publish" type="button" hidden>Letzte Veröffentlichung rückgängig machen</button>
+    <output id="save-status" aria-live="polite"></output>
+  </form>
+</main>

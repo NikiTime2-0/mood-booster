@@ -1,8 +1,97 @@
 <!doctype html>
 <html lang="de">
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="refresh" content="0;url=https://mood-booster.niklas-barber.workers.dev/">
-<title>Mood Booster</title>
-<a href="https://mood-booster.niklas-barber.workers.dev/">Mood Booster öffnen</a>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#fbf6ed">
+  <title>Mood Booster</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="apple-touch-icon.png">
+  <link rel="stylesheet" href="style.css?v=homescreen-kompakt">
+  <link rel="stylesheet" href="doll.css?v=1">
+  <link rel="stylesheet" href="cat.css?v=katze-ohne-spielzeug">
+  <script defer src="texte.js?v=aktuelle-banner"></script>
+  <script defer src="app.js?v=zieh-refresh"></script>
+  <!-- To restore the doll, replace the cat script and markup with a deferred doll.js?v=1 script. -->
+  <script defer src="cat.js?v=katze-ohne-spielzeug"></script>
+</head>
+<body>
+  <div id="pull-refresh" hidden aria-hidden="true"></div>
+  <section class="greeting" aria-label="Nachricht">
+    <span id="greeting-icon" aria-hidden="true">☀</span>
+    <p id="greeting" aria-live="polite">Hallo ✦</p>
+  </section>
+  <main>
+    <header>
+      <a class="brand-star" href="/admin" aria-label="Admin-Anmeldung">✦</a>
+      <h1>Mood <em>Booster</em></h1>
+    </header>
+    <figure class="quote">
+      <span class="quotation" aria-hidden="true">“</span>
+      <blockquote id="quote" aria-live="polite">Don’t let the hard days win.</blockquote>
+      <button type="button" class="favorite" data-favorite="quote" aria-pressed="false">☆ Gefällt mir</button>
+      <figcaption>Ein neuer Spruch alle 15 Minuten</figcaption>
+      <span class="sparkle" aria-hidden="true">✦</span>
+    </figure>
+    <div class="quick-boost">
+      <button id="boost-button" type="button">Ich brauche jetzt einen Boost</button>
+      <div aria-live="polite" aria-atomic="true">
+        <button id="boost-card" type="button" aria-expanded="true" aria-controls="boost-message" hidden>
+          <span id="boost-message"></span>
+          <span id="boost-expand-label" hidden>Boost anzeigen</span>
+        </button>
+      </div>
+    </div>
+    <p id="favorite-status" role="status"></p>
+    <div class="mascot-glow" aria-hidden="true"></div>
+    <div class="mascot">
+      <span aria-hidden="true">✧</span>
+      <button id="mascot-button" type="button" aria-label="Strickfigur animieren">
+        <img id="mascot-image" src="knit-firetruck.png" alt="" width="150" height="140">
+      </button>
+      <span aria-hidden="true">✦</span>
+    </div>
+  </main>
+  <button id="cat-launcher" class="doll-launcher" type="button" aria-label="Katze öffnen" aria-haspopup="dialog">
+    <img src="fluffy-cat.png" alt="" width="32" height="32">
+  </button>
+  <dialog id="cat-dialog" class="doll-dialog" aria-labelledby="cat-title">
+    <form method="dialog">
+      <button class="doll-close" type="submit" aria-label="Schließen">×</button>
+    </form>
+    <h2 id="cat-title">Kleine Katze</h2>
+    <div id="cat-pet" role="group" aria-label="Katze streicheln">
+      <img class="cat-figure" src="fluffy-cat.png" alt="" width="192" height="192" draggable="false">
+      <img class="cat-moving-part" src="fluffy-cat.png" alt="" width="192" height="192" draggable="false">
+      <button type="button" data-cat-spot="head" aria-label="Köpfchen streicheln"></button>
+      <button type="button" data-cat-spot="back" aria-label="Rücken streicheln"></button>
+      <button type="button" data-cat-spot="paws" aria-label="Pfoten kraulen"></button>
+      <button type="button" data-cat-spot="tail" aria-label="Schwanz berühren"></button>
+    </div>
+    <p id="cat-status" role="status">Streichle mich!</p>
+    <div id="cat-shelf" role="group" aria-label="Leckerli-Regal">
+      <p id="cat-shelf-hint">Ziehen zum Leckerli geben</p>
+      <div id="cat-treats">
+        <button class="cat-treat" type="button" aria-label="Erstes Leckerli geben"><span aria-hidden="true"></span></button>
+        <button class="cat-treat" type="button" aria-label="Zweites Leckerli geben"><span aria-hidden="true"></span></button>
+        <button class="cat-treat" type="button" aria-label="Drittes Leckerli geben"><span aria-hidden="true"></span></button>
+      </div>
+      <p id="cat-shelf-note" role="status" hidden>Niklas muss Leckerlis kaufen.</p>
+    </div>
+    <form id="cat-name-form">
+      <label for="cat-name">Wie soll sie heißen?</label>
+      <div class="cat-name-row">
+        <input id="cat-name" type="text" maxlength="40" required>
+        <button type="submit">Speichern</button>
+      </div>
+      <p id="cat-name-status" role="status"></p>
+    </form>
+    <div id="doll-poll" role="group" aria-labelledby="poll-question">
+      <p id="poll-question">Soll die Stoffpuppe zurückkommen?</p>
+      <button type="button" value="yes" aria-pressed="false">Ja</button>
+      <button type="button" value="no" aria-pressed="false">Nein</button>
+      <p id="poll-status" role="status"></p>
+    </div>
+  </dialog>
+</body>
 </html>

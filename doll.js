@@ -7,7 +7,7 @@ dollTemplate.innerHTML = `
     <form method="dialog">
       <button class="doll-close" type="submit" aria-label="Schließen">×</button>
     </form>
-    <h2 id="doll-title">Niemand Bestimmtes</h2>
+    <h2 id="doll-title">No One in Particular</h2>
     <p>Einmal den Frust abtippen.</p>
     <button class="doll-toy" type="button" aria-label="Stoffpuppe antippen">
       <span class="doll-part doll-leg doll-leg-left"></span>
@@ -21,9 +21,6 @@ dollTemplate.innerHTML = `
         <span class="doll-mouth"></span>
       </span>
     </button>
-    <div class="doll-actions">
-      <button class="doll-reset" type="button" hidden>Puppe flicken</button>
-    </div>
     <span class="doll-status" role="status"></span>
   </dialog>
 `;
@@ -33,7 +30,6 @@ const launcher = doll.querySelector('.doll-launcher');
 const dialog = doll.querySelector('.doll-dialog');
 const toy = doll.querySelector('.doll-toy');
 const body = doll.querySelector('.doll-body');
-const reset = doll.querySelector('.doll-reset');
 const status = doll.querySelector('.doll-status');
 const marks = [];
 
@@ -63,16 +59,7 @@ toy.addEventListener('click', (event) => {
   part.append(mark);
   marks.push(mark);
   if (marks.length > 16) marks.shift().remove();
-  reset.hidden = false;
   status.textContent = isTear ? 'Eine Naht ist aufgegangen.' : 'Ein blauer Fleck ist zu sehen.';
-});
-
-reset.addEventListener('click', () => {
-  for (const mark of marks) mark.remove();
-  marks.length = 0;
-  toy.focus();
-  reset.hidden = true;
-  status.textContent = 'Die Puppe ist wieder geflickt.';
 });
 
 document.body.append(doll);

@@ -17,12 +17,20 @@ window.mood = {
     "Du hast schon so viele schwierige Tage geschafft."
   ],
   banner: [
-    { ab: 0, icon: "☾", text: "Du solltest schlafen, Laura. Morgen ist auch noch ein Tag." },
-    { ab: 6, icon: "☀", text: "Guten Morgen, Laura! Mach’s dir heute schön." },
-    { ab: 11, icon: "✦", text: "Hallo, Laura! Hast du schon eine kleine Pause gemacht?" },
-    { ab: 14, icon: "✦", text: "Wie läuft die Schicht? Ich drück dir die Daumen." },
-    { ab: 14, icon: "✦", text: "Hallo, Laura! Kleiner Zwischenstopp zum Durchatmen." },
-    { ab: 19, icon: "☾", text: "Guten Abend, Laura. Zeit für etwas Schönes." },
-    { ab: 23, icon: "☾", text: "Du solltest schlafen. Gute Nacht, Laura." }
+    { ab: 0, icon: "☾", text: "Du solltest schlafen. Morgen ist auch noch ein Tag." },
+    { ab: 6, icon: "☀", text: "Guten Morgen!" },
+    { ab: 11, icon: "✦", text: "Hast du schon eine kleine Pause gemacht?" },
+    { ab: 14, icon: "✦", text: "Wie läuft dein Tag?" },
+    { ab: 14, icon: "✦", text: "Hallo! Kleiner Zwischenstopp zum Durchatmen." },
+    { ab: 19, icon: "☾", text: "Guten Abend!" },
+    { ab: 23, icon: "☾", text: "Du solltest schlafen. Gute Nacht." }
   ]
+};
+
+window.moodBannerAt = function (banners, date, select = (_, day) => day) {
+  const hour = date.getHours();
+  const day = Math.floor(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()) / 86_400_000);
+  const activeHour = Math.max(...banners.filter(item => item.ab <= hour).map(item => item.ab));
+  const messages = banners.filter(item => item.ab === activeHour);
+  return messages[select(activeHour, day, messages.length) % messages.length];
 };

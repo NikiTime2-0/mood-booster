@@ -1,0 +1,4 @@
+assets/
+.wrangler/
+.dev.vars
+wrangler.jsonc
